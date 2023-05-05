@@ -2,18 +2,12 @@
 
 class Categoria {
     
-    public $animale;
+    public $tipoAnimale;
 
-    public function __construct($_animale)
+    public function __construct($tipoAnimale)
+
     {
-        $this->animale = $_animale;
-    }
-    public function get_animale(){
-        return $this->animale;
-    }
-
-    public function set_animale($_animale){
-        $this->animale = $_animale;
+        $this->tipoAnimale = $tipoAnimale;
     }
     
 }

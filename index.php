@@ -3,17 +3,20 @@ require_once __DIR__ . '/Models/Categoria.php';
 require_once __DIR__ . '/Models/Prodotto.php';
 require_once __DIR__ . '/Models/Cibo.php';
 require_once __DIR__ . '/Models/Giochi.php';
+require_once __DIR__ . '/Models/Accessori.php';
 
-$prodotto1 = new Prodotti('Collare', 'cane', 20.99);
-$prodotto2 = new Prodotti('Palla da tennis', 'gatto', 10.99);
-$prodotto3 = new Cibo('Crocchette 1kg', 'cane', 40.50);
-$prodotto3->set_ingredienti('prosciutto', 'riso');
+$gatto = new Categoria ('<i class="fa-solid fa-cat"></i>');
+$cane = new Categoria ('<i class="fa-solid fa-dog"></i>');
 
 
-$prodotti = [
-    $prodotto1,
-    $prodotto2,
-    $prodotto3,
+$cuccia = new Accessori('Collare', 40, 'img/animal.shop.jpg', 500,'Product', $cane);
+$crocchette = new Cibo('Crocchette ', 7, 'img/animal.shop.jpg', 300, 'Food', $gatto);
+$palla = new Giochi('Palla da tennis', 10, 'img/animal.shop.jpg', 'Plastica', 'Game',$cane );
+
+$prodotto = [
+    $cuccia,
+    $crocchette,
+    $palla,
 ];
 
 ?>
@@ -25,33 +28,30 @@ $prodotti = [
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- collegamento al framework bootstrap via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Boolshop</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <div class="container">
-        <h1>Negozio per animali</h1>
-
-        <div class="row">
-            <?php foreach ($prodotti as $prodotto) : ?>
-                <div class="col-12 col-md-3">
-                    <div class="card">
-                        <img src="img/animal.shop.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $prodotto->get_nomeProdotto(); ?></h5>
-                            <p class="card-text"><?php echo $prodotto->get_animale(); ?></p>
-                            <?php if (method_exists($prodotto, 'get_ingredienti')) : ?>
-                                <p class="card-text">ingredienti: <?php echo $prodotto->get_ingredienti(); ?></p>
-                            <?php endif; ?>
-                            <p class="card-text">Prezzo:€ <?php echo $prodotto->get_prezzo(); ?></p>
-                            
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+<body class="bg-success-subtle">
+<div class="container d-flex justify-content-around my-5">
+    <?php foreach ($prodotto as $prodotti) :?>
+        <div class="card" style="width: 18rem;">
+            <?php
+            echo $palla->getimg();
+            ?>
+            <div class="card-body">
+                <?php
+                echo $prodotti->getFullData();
+                echo $prodotti->getData();
+                echo $prodotti->getCategoria();
+                echo $prodotti->gettype();
+                ?>
+            </div>
         </div>
+        <?php endforeach; ?>
+
     </div>
 
 </body>

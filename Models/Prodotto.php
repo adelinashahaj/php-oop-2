@@ -1,41 +1,31 @@
 <?php
 
 class Prodotti {
-    public $nomeProdotto;
-    public $animale;
+   
+    public $titolo;
     public $prezzo;
-
-    public function __construct($_nomeProdotto, $_animale, $_prezzo)
+    public $immagine;
+    
+    public function __construct($titolo, $prezzo, $immagine)
     {
-        $this->nomeProdotto = $_nomeProdotto;
-        $this->animale = $_animale;
-        $this->prezzo = $_prezzo;
+        $this->titolo = $titolo;
+        $this->prezzo = $prezzo;
+        $this->immagine = $immagine;
+    }
+
+    public function getFullData()
+    {
+        return
+        '<span class="text-primary">Titolo: </span>' . $this->titolo . '<br />'
+        .'<span class="text-primary">Prezzo: </span>' . $this->prezzo . '<br />';
         
-    }
+     }
 
-    public function get_nomeProdotto(){
-        return $this->nomeProdotto;
-    }
+     public function getimg() {
+        return
+        "<img src=' $this->immagine' class='card-img-top'>";
+     }
 
-    public function set_nomeProdotto($_nomeProdotto){
-        $this->nomeProdotto = $_nomeProdotto;
-    }
-
-    public function get_animale(){
-        return $this->animale;
-    }
-
-    public function set_animale($_animale){
-        $this->animale = $_animale;
-    }
-
-    public function get_prezzo(){
-        return $this->prezzo;
-    }
-
-    public function set_prezzo($_prezzo){
-        $this->prezzo = $_prezzo;
-    }
 };
 
 

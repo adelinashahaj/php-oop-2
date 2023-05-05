@@ -1,23 +1,35 @@
 <?php
 require_once __DIR__ . '/Prodotto.php';
+require_once __DIR__ . '/Categoria.php';
 
 class Cibo extends Prodotti {
-    public $pesoNetto;
-    public $ingredienti;
+  public $calorie;
+  public $type;
+  public $categoria;
 
-    public function get_pesoNetto(){
-        return $this->pesoNetto;
-    }
+  public function __construct($titolo, $prezzo, $immagine, $calorie,$type, $categoria) {
 
-    public function set_pesoNetto($_pesoNetto){
-        $this->pesoNetto = $_pesoNetto;
-    }
+     parent::__construct($titolo, $prezzo, $immagine);
+    $this->calorie = $calorie;
+    $this->type =$type;
+    $this->categoria = $categoria;
+  }
 
-    public function get_ingredienti(){
-        return $this->ingredienti;
-    }
+  public function getData()
+  {
+      return
+          '<span class="card-text text-primary">Calorie: </span>' . $this->calorie . '<span> kcal</span>' . '<br />';
+  }
+  public function getCategoria()
+  {
 
-    public function set_ingredienti($_ingredienti){
-        $this->ingredienti = $_ingredienti;
-    }
+      return
+          $this->categoria->tipoAnimale;
+  
+  }
+  
+  public function gettype() {
+    return
+    '<span class="card-text text-primary">Type: </span>' . $this->type . '<span></span>' . '<br />';
+}
 };
