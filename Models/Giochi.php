@@ -27,7 +27,8 @@ class Giochi extends Prodotti {
     {
 
         return
-            $this->categoria->tipoAnimale;
+             $this->categoria->tipoAnimale;
+            
     }
 
     public function gettype() {

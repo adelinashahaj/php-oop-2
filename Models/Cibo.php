@@ -24,7 +24,8 @@ class Cibo extends Prodotti {
   {
 
       return
-          $this->categoria->tipoAnimale;
+                $this->categoria->tipoAnimale;
+       
   
   }
   

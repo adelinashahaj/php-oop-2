@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/Prodotto.php';
 require_once __DIR__ . '/Categoria.php';
+
 class Accessori extends Prodotti {
 
     public $peso;
@@ -25,12 +26,12 @@ class Accessori extends Prodotti {
 
         return
             $this->categoria->tipoAnimale;
-        // "<img src='" . $this->categoria->tipoAnimale . "'class='card-img-top'>";
+         
     }
 
     
     public function gettype() {
         return
-        '<span class="card-text text-primary">Type: </span>' . $this->type . '<span></span>' . '<br />';
+        '<span class="card-text text-primary">Type: </span>' . $this->type . '' . '<br />';
     }
 }

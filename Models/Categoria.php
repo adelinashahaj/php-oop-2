@@ -10,4 +10,6 @@ class Categoria {
         $this->tipoAnimale = $tipoAnimale;
     }
     
+
+    
 }
