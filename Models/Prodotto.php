@@ -1,13 +1,13 @@
 <?php
 require_once __DIR__ . '/Categoria.php';
-require_once __DIR__ . '/./Traits/Peso.php';
+require_once __DIR__ . '/./Traits/Dimensioni.php';
 class Prodotti {
    
     public $titolo;
     public $prezzo;
     public $immagine;
     public $categoria;
-    use Peso;
+    use Dimensioni;
     
     
     public function __construct($titolo, $prezzo, $immagine, $categoria)
@@ -34,7 +34,7 @@ class Prodotti {
      {
    
          return
-            $this->categoria->tipoAnimale;
+         $this->categoria->tipoAnimale;
           
      
      }

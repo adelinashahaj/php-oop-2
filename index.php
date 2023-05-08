@@ -13,10 +13,15 @@ $cane = new Categoria ('<i class="fa-solid fa-dog"></i>');
 
 $cuccia = new Accessori('Collare', 40, 'img/animal.shop.jpg', $cane);
 $cuccia->setpeso(100);
-$crocchette = new Cibo('Crocchette ', 7, 'img/animal.shop.jpg', 300,  $gatto);
+$cuccia->setAltezza(20);
+
+$crocchette = new Cibo('Crocchette ', 7, 'img/animal.shop.jpg', 300,   $gatto);
 $crocchette->setpeso(200);
-$palla = new Giochi('Palla da tennis', 10, 'img/animal.shop.jpg', 'Plastica', $cane );
+$crocchette->setAltezza(2);
+
+$palla = new Giochi('Palla da tennis', 10, 'img/animal.shop.jpg', 'Plastica',  $cane );
 $palla->setpeso(200);
+$palla->setAltezza(5);
 
 $prodotto = [
     $cuccia,
@@ -51,14 +56,15 @@ $prodotto = [
                 <?php
                 echo $prodotti->getFullData();
                 echo  $prodotti->getpeso();
-                echo  $prodotti->getClassName();
+                echo  $prodotti->getAltezza();
+                echo '<span class=" text-primary">Type: </span>'. $prodotti->getClassName();
                 if ($prodotti->getClassName() == 'Giochi') {
                      echo '<br/> <span class=" text-primary">Materiale: </span>' .$prodotti->materiale;
                 }else if  ($prodotti->getClassName() == 'Cibo') {
                       echo '<br/><span class=" text-primary">Calorie: </span>' . $prodotti->calorie;
                 }
 
-                
+                // fa la verifica del erorre
                 try {
                     echo $prodotti->calcAnno('2020');
                 } catch (Exception $e) {
