@@ -41,7 +41,13 @@ class Prodotti {
      public function getClassName(){
         return get_class($this);
      }
-
+/**
+     * Calcola l'anno di produzione
+     * 
+     * metodo richiamabile pubblicamente che consente di calcolare l'anno di produzione  a partire dal un anno qualsiasi
+     * @param int $yob anno qualsiasi
+     * @return string Ritorna una stringa contenente l'anno di produzione
+     */
      public function calcAnno($yob) {
 
         $now = date("Y");
