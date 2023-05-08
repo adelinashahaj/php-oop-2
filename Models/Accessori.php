@@ -6,8 +6,6 @@ class Accessori extends Prodotti {
 
     
  
-    
-
     public function __construct($titolo, $prezzo, $immagine,   $categoria) {
 
         parent::__construct($titolo, $prezzo, $immagine, $categoria);

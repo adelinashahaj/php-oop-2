@@ -57,7 +57,14 @@ $prodotto = [
                 }else if  ($prodotti->getClassName() == 'Cibo') {
                       echo '<br/><span class=" text-primary">Calorie: </span>' . $prodotti->calorie;
                 }
-               
+
+                
+                try {
+                    echo $prodotti->calcAnno('2020');
+                } catch (Exception $e) {
+                    
+                    echo "Si è verificato un errore: " . $e->getMessage();
+                }
                 
               
                

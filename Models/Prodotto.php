@@ -42,6 +42,20 @@ class Prodotti {
         return get_class($this);
      }
 
+     public function calcAnno($yob) {
+
+        $now = date("Y");
+
+        if (!is_numeric($yob)) {
+            throw new Exception('Il valore passato non è un numero valido');
+        } else if ($yob < 1900 || $yob > $now) {
+            throw new Exception('Anno di produzione non valido');
+        }
+
+        return "<br/> " . ($now - $yob) . ' anni di produzione';
+
+    }
+
 };
 
 
