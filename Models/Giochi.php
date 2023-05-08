@@ -1,41 +1,25 @@
 <?php
 require_once __DIR__ . '/Prodotto.php';
 require_once __DIR__ . '/Categoria.php';
-
+require_once __DIR__ . '/./Traits/Peso.php';
 class Giochi extends Prodotti {
+
     public $materiale;
-    public $type;
-    public $categoria;
-    
+   
 
-    public function __construct($titolo, $prezzo, $immagine, $materiale, $type,  $categoria ){
+    public function __construct($titolo, $prezzo, $immagine, $materiale, $categoria ){
 
-        parent::__construct($titolo, $prezzo, $immagine);
+        parent::__construct($titolo, $prezzo, $immagine, $categoria);
         $this->materiale = $materiale;
-        $this->type =$type;
-        $this->categoria = $categoria;
+        
+       
        
     }
-
-
-    public function getData()
-    {
-        return
-            '<span class="card-text text-primary">Materiale: </span>' . $this->materiale . '<span> </span>' . '<br />';
-    }
-    public function getCategoria()
-    {
-
-        return
-             $this->categoria->tipoAnimale;
-            
-    }
-
-    public function gettype() {
-        return
-        '<span class="card-text text-primary">Type: </span>' . $this->type . '<span></span>' . '<br />';
-    }
-
+  
+    public function getClassName(){
+        return get_class($this);
+     }
+    
 }
 
 

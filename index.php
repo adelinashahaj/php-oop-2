@@ -5,13 +5,18 @@ require_once __DIR__ . '/Models/Cibo.php';
 require_once __DIR__ . '/Models/Giochi.php';
 require_once __DIR__ . '/Models/Accessori.php';
 
+
+
 $gatto = new Categoria ('<i class="fa-solid fa-cat"></i>');
 $cane = new Categoria ('<i class="fa-solid fa-dog"></i>');
 
 
-$cuccia = new Accessori('Collare', 40, 'img/animal.shop.jpg', 500,'Product', $cane);
-$crocchette = new Cibo('Crocchette ', 7, 'img/animal.shop.jpg', 300, 'Food', $gatto);
-$palla = new Giochi('Palla da tennis', 10, 'img/animal.shop.jpg', 'Plastica', 'Game',$cane );
+$cuccia = new Accessori('Collare', 40, 'img/animal.shop.jpg', $cane);
+$cuccia->setpeso(100);
+$crocchette = new Cibo('Crocchette ', 7, 'img/animal.shop.jpg', 300,  $gatto);
+$crocchette->setpeso(200);
+$palla = new Giochi('Palla da tennis', 10, 'img/animal.shop.jpg', 'Plastica', $cane );
+$palla->setpeso(200);
 
 $prodotto = [
     $cuccia,
@@ -45,9 +50,17 @@ $prodotto = [
             <div class="card-body">
                 <?php
                 echo $prodotti->getFullData();
-                echo $prodotti->getData();
+                echo  $prodotti->getpeso();
+                echo  $prodotti->getClassName();
+                if ($prodotti->getClassName() == 'Giochi') {
+                     echo '<br/> <span class=" text-primary">Materiale: </span>' .$prodotti->materiale;
+                }else if  ($prodotti->getClassName() == 'Cibo') {
+                      echo '<br/><span class=" text-primary">Calorie: </span>' . $prodotti->calorie;
+                }
+               
                 
-                echo $prodotti->gettype();
+              
+               
                 ?>
             </div>
         </div>
